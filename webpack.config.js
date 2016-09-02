@@ -24,6 +24,7 @@ module.exports = {
     devtool: isDev ? 'inline-source-map' : null,
 
     plugins: [
+        new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
             LANG: JSON.stringify('ru')
