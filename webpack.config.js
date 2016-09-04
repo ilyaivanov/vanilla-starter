@@ -4,15 +4,13 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 const isDev = NODE_ENV == 'development';
 
 module.exports = {
-    context: __dirname + '/src',
 
     entry: {
-        home: './home',
-        about: './about'
+        app: './src/app'
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js',
+        filename: 'bundle.js',
         library: '[name]'
     },
 
@@ -28,7 +26,7 @@ module.exports = {
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
             LANG: JSON.stringify('ru')
-        }),
+        })
     ],
 
     module: {
@@ -52,7 +50,7 @@ module.exports = {
         modulesDirectories: ['node_modules'],
         moduleTemplates: ['*-loader', '*'],
         extensions: ['', '.js']
-    },
+    }
 };
 
 if (NODE_ENV == 'production') {
